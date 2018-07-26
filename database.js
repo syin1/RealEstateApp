@@ -67,15 +67,15 @@ $('#button-id').on('click', function(event) {
 
   alert('Listing successfully added');
 
-  $('#employee-name-input').val('');
-  $('#role-input').val('');
-  $('#start-input').val('');
-  $('#rate-input').val('');
-  $('#rate-input').val('');
-  $('#rate-input').val('');
-  $('#rate-input').val('');
-  $('#rate-input').val('');
-  $('#rate-input').val('');
+  $('.card-title-address').val('');
+  $('.card-subtitle-postalcode').val('');
+  $('.card-subtitle mb-2 text-muted').val('');
+  $('.card-subtitle-beds').val('');
+  $('.card-subtitle-baths').val('');
+  $('.card-subtitle-type').val('');
+  $('.card-subtitle-utilities').val('');
+  $('.card-subtitle-size').val('');
+  $('card-text-description').val('');
 });
 
 database.ref().on('child_added', function(childSnapshot) {
