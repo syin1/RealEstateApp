@@ -13,31 +13,31 @@ var database = firebase.database();
 $('#button-id').on('click', function(event) {
   event.preventDefault();
 
-  var Address = $('#employee-name-input')
+  var Address = $('.card-title-address')
     .val()
     .trim();
-  var postalCode = $('#role-input')
+  var postalCode = $('.card-subtitle-postalcode')
     .val()
     .trim();
-  var Price = $('#rate-input')
+  var Price = $('.card-subtitle mb-2 text-muted')
     .val()
     .trim();
-  var numbBeds = $('#rate-input')
+  var numbBeds = $('.card-subtitle-beds')
     .val()
     .trim();
-  var numbBaths = $('#rate-input')
+  var numbBaths = $('.card-subtitle-baths')
     .val()
     .trim();
-  var Description = $('#rate-input')
+  var Description = $('.card-text-description')
     .val()
     .trim();
-  var Type = $('#rate-input')
+  var Type = $('card-subtitle-type')
     .val()
     .trim();
-  var Utilities = $('#rate-input')
+  var Utilities = $('.card-subtitle-utilities')
     .val()
     .trim();
-  var Size = $('#rate-input')
+  var Size = $('card-subtitle-size')
     .val()
     .trim();
 
