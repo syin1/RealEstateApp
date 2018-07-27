@@ -7,9 +7,22 @@ var config = {
   messagingSenderId: '563256383606'
 };
 firebase.initializeApp(config);
-
+console.log('geko');
 var database = firebase.database();
 $(document).ready(function() {
+  var searchValue = '';
+  /////////////////////////////////////search bar
+  $('.submit').on('click', function() {
+    event.preventDefault();
+    searchValue = $('.input')
+      .val()
+      .trim();
+    console.log(searchValue);
+    return false;
+  });
+  //ended nav bar search on click function
+
+  /////////////////////////////////////////////
   $('#button-id').on('click', function(event) {
     event.preventDefault();
 
