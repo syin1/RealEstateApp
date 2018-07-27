@@ -1,25 +1,73 @@
 var config = {
   apiKey: 'AIzaSyAGwvEkUM7qJKhTtJfwo9cAKdCOhrD8lmc',
-  authDomain: 'realestateapp-70bdf.firebaseapp.com',
-  databaseURL: 'https://realestateapp-70bdf.firebaseio.com',
-  projectId: 'realestateapp-70bdf',
-  storageBucket: 'realestateapp-70bdf.appspot.com',
+  authDomain: 'real-estate-app-9e4e6.firebaseapp.com',
+  databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com/',
+  projectId: 'real-estate-app-9e4e6',
+  storageBucket: 'real-estate-app-9e4e6.appspot.com',
   messagingSenderId: '563256383606'
 };
 firebase.initializeApp(config);
-console.log('geko');
 var database = firebase.database();
+
 $(document).ready(function() {
-  var searchValue = '';
-  /////////////////////////////////////search bar
-  $('.submit').on('click', function() {
-    event.preventDefault();
-    searchValue = $('.input')
-      .val()
-      .trim();
-    console.log(searchValue);
-    return false;
+  database.ref().on('value', function(childSnapshot) {
+    console.log('css:', childSnapshot.val()); //todo : figure out why null
+
+    var Address = childSnapshot.val().address;
+    var postalCode = childSnapshot.val().postalCode;
+    var Price = childSnapshot.val().Price;
+    var numbBeds = childSnapshot.val().Beds;
+    var numbBaths = childSnapshot.val().Baths;
+    var Description = childSnapshot.val().Description;
+    var Type = childSnapshot.val().Type;
+    var Utilities = childSnapshot.val().Utilities;
+    var Size = childSnapshot.val().Size;
+    var searchValue = '';
+    /////////////////////////////////////search bar
+    $('.submit').on('click', function() {
+      event.preventDefault();
+      searchValue = $('.input')
+        .val()
+        .trim();
+      console.log('sv:', searchValue);
+
+      //now adding in if search keywords
+      if (
+        this.child('address')
+          .getValue()
+          .equals(searchValue) ||
+        this.child('postalCode')
+          .getValue()
+          .equals(searchValue) ||
+        this.child('Price')
+          .getValue()
+          .equals(searchValue) ||
+        this.child('Beds')
+          .getValue()
+          .equals(searchValue) ||
+        this.child('Baths')
+          .getValue()
+          .equals(searchValue) ||
+        this.child('Type')
+          .getValue()
+          .equals(searchValue) ||
+        this.child('Utilities')
+          .getValue()
+          .equals(searchValue) ||
+        this.child('Size')
+          .getValue()
+          .equals(searchValue)
+      ) {
+        var card = $('.card-img-top');
+        snapshot.child(searchValue).appendTo(card);
+      }
+      //ended if statement
+
+      return false;
+    });
   });
+  ///////////////////
+
   //ended nav bar search on click function
 
   /////////////////////////////////////////////
@@ -55,8 +103,8 @@ $(document).ready(function() {
       .trim();
 
     var newList = {
-      Address: Address,
-      postalCode: postalCode,
+      address: Address,
+      postalcode: postalCode,
       Price: Price,
       Beds: numbBeds,
       Baths: numbBaths,
@@ -92,11 +140,11 @@ $(document).ready(function() {
   });
 
   database.ref().on('child_added', function(childSnapshot) {
-    console.log(childSnapshot.val());
+    console.log('val:', childSnapshot.val());
 
-    var Address = childSnapshot.val().Address;
-    var postalCode = childSnapshot.val().postalCode;
-    var Price = childSnapshot.val().Price;
+    var Address = childSnapshot.val().address;
+    var postalCode = childSnapshot.val().postalcode;
+    var Price = childSnapshot.val().price;
     var numbBeds = childSnapshot.val().Beds;
     var numbBaths = childSnapshot.val().Baths;
     var Description = childSnapshot.val().Description;
