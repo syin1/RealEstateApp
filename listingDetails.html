@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>listingDetails</title>
+
+  <!-- Bootstrap Reference -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+  <script src="assets/javascript/listing.js"></script>
+  <!-- Back/Login -->
+  <a href="index.html" id="home" class="btn btn-info btn-lg">Home</a>
+  <br>
+  <!-- slides -->
+  <div id="carouselExampleControls" class="carousel slide container justify-content-md-center" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active thumbnail slides">
+        <img class="d-block w-100" src="assets/images/image1.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item thumbnail slides">
+        <img class="d-block w-100" src="assets/images/image2.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item thumbnail slides">
+        <img class="d-block w-100" src="assets/images/image3.jpg" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <br>
+  <table>
+    <h1 id="address"></h1>
+    <h1 id="bath"></h1>
+    <h1 id="beds"></h1>
+    <h1 id="description"></h1>
+    <h1 id="postalCode"></h1>
+    <h1 id="type"></h1>
+    <h1 id="utilities"></h1>
+    <h1 id="size"></h1>
+  </table>
+</body>
+
+</html>

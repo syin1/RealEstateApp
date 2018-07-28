@@ -1,0 +1,15 @@
+img {
+  display: block;
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+
+body {
+  background-color: grey;
+}
+
+#home {
+  align-items: center;
+}
