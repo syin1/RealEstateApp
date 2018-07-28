@@ -138,7 +138,6 @@ $(document).ready(function() {
         console.log('rootref:' + child.val());
         $('.submit').on('click', function() {
           event.preventDefault();
-          information = '';
           searchValue = $('.input')
             .val()
             .trim();
