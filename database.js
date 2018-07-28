@@ -155,6 +155,8 @@ $(document).ready(function() {
           ) {
             //console.log('hopefully works' + child.val(searchValue));
             console.log('works ');
+            //var parentkey = childSnapshot.ref.parent.getKey();
+            //console.log(parentkey);
           } else {
             console.log('not in database');
           }
