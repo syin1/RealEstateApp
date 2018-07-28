@@ -134,18 +134,33 @@ $(document).ready(function() {
     var urlRef = rootRef.child('real-estate-app-9e4e6');
     urlRef.once('value', function(child) {
       childSnapshot.forEach(function(child) {
-        console.log('child: ' + child.val());
-        console.log(child.val().address);
-      });
-      $('.submit').on('click', function() {
-        event.preventDefault();
-        information = '';
-        searchValue = $('.input')
-          .val()
-          .trim();
-        console.log(searchValue);
+        //console.log('child: ' + child.val());//give object object
+        console.log('rootref:' + child.val());
+        $('.submit').on('click', function() {
+          event.preventDefault();
+          information = '';
+          searchValue = $('.input')
+            .val()
+            .trim();
+          if (
+            searchValue === child.val().address ||
+            searchValue === child.val().baths ||
+            searchValue === child.val().beds ||
+            searchValue === child.val().description ||
+            searchValue === child.val().postalcode ||
+            searchValue === child.val().price ||
+            searchValue === child.val().size ||
+            searchValue === child.val().type ||
+            searchValue === child.val().utilities
+          ) {
+            //console.log('hopefully works' + child.val(searchValue));
+            console.log('works ');
+          } else {
+            console.log('not in database');
+          }
 
-        return false;
+          return false;
+        });
       });
     });
     /////////////////////////////////////search bar
