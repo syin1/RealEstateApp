@@ -135,19 +135,20 @@ $(document).ready(function() {
     urlRef.once('value', function(child) {
       childSnapshot.forEach(function(child) {
         console.log('child: ' + child.val());
+        console.log(child.val().address);
+      });
+      $('.submit').on('click', function() {
+        event.preventDefault();
+        information = '';
+        searchValue = $('.input')
+          .val()
+          .trim();
+        console.log(searchValue);
+
+        return false;
       });
     });
     /////////////////////////////////////search bar
-    $('.submit').on('click', function() {
-      event.preventDefault();
-      information = '';
-      searchValue = $('.input')
-        .val()
-        .trim();
-      console.log(searchValue);
-
-      return false;
-    });
   });
   ///////////////////
 
