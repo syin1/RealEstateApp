@@ -14,15 +14,16 @@ $(document).ready(function() {
     console.log('css:', childSnapshot.val()); //todo : figure out why null
 
     var Address = childSnapshot.val().address;
-    var postalCode = childSnapshot.val().postalCode;
-    var Price = childSnapshot.val().Price;
-    var numbBeds = childSnapshot.val().Beds;
-    var numbBaths = childSnapshot.val().Baths;
-    var Description = childSnapshot.val().Description;
-    var Type = childSnapshot.val().Type;
-    var Utilities = childSnapshot.val().Utilities;
-    var Size = childSnapshot.val().Size;
+    var postalCode = childSnapshot.val().postalcode;
+    var Price = childSnapshot.val().price;
+    var numbBeds = childSnapshot.val().beds;
+    var numbBaths = childSnapshot.val().baths;
+    var Description = childSnapshot.val().description;
+    var Type = childSnapshot.val().type;
+    var Utilities = childSnapshot.val().utilities;
+    var Size = childSnapshot.val().size;
     var searchValue = '';
+
     /////////////////////////////////////search bar
     $('.submit').on('click', function() {
       event.preventDefault();
@@ -74,13 +75,13 @@ $(document).ready(function() {
   $('#button-id').on('click', function(event) {
     event.preventDefault();
 
-    var Address = $('.card-title-address')
+    var address = $('.card-title-address')
       .val()
       .trim();
-    var postalCode = $('.card-subtitle-postalcode')
+    var postalcode = $('.card-subtitle-postalcode')
       .val()
       .trim();
-    var Price = $('.card-subtitle mb-2 text-muted')
+    var price = $('.card-subtitle mb-2 text-muted')
       .val()
       .trim();
     var numbBeds = $('.card-subtitle-beds')
@@ -89,42 +90,42 @@ $(document).ready(function() {
     var numbBaths = $('.card-subtitle-baths')
       .val()
       .trim();
-    var Description = $('.card-text-description')
+    var description = $('.card-text-description')
       .val()
       .trim();
-    var Type = $('card-subtitle-type')
+    var type = $('card-subtitle-type')
       .val()
       .trim();
-    var Utilities = $('.card-subtitle-utilities')
+    var utilities = $('.card-subtitle-utilities')
       .val()
       .trim();
-    var Size = $('card-subtitle-size')
+    var size = $('card-subtitle-size')
       .val()
       .trim();
 
     var newList = {
       address: Address,
       postalcode: postalCode,
-      Price: Price,
-      Beds: numbBeds,
-      Baths: numbBaths,
-      Description: Description,
-      Type: Type,
-      Utilities: Utilities,
-      Size: Size
+      price: Price,
+      beds: numbBeds,
+      baths: numbBaths,
+      description: Description,
+      type: Type,
+      utilities: Utilities,
+      size: Size
     };
 
     database.ref().push(newList);
 
-    console.log(newList.Address);
-    console.log(newList.postalCode);
-    console.log(newList.Price);
+    console.log(newList.address);
+    console.log(newList.postalcode);
+    console.log(newList.price);
     console.log(newList.numbBeds);
     console.log(newList.numbBaths);
-    console.log(newList.Description);
-    console.log(newList.Type);
-    console.log(newList.Utilities);
-    console.log(newList.Size);
+    console.log(newList.description);
+    console.log(newList.type);
+    console.log(newList.utilities);
+    console.log(newList.size);
 
     alert('Listing successfully added');
 
@@ -142,36 +143,36 @@ $(document).ready(function() {
   database.ref().on('child_added', function(childSnapshot) {
     console.log('val:', childSnapshot.val());
 
-    var Address = childSnapshot.val().address;
-    var postalCode = childSnapshot.val().postalcode;
-    var Price = childSnapshot.val().price;
-    var numbBeds = childSnapshot.val().Beds;
-    var numbBaths = childSnapshot.val().Baths;
-    var Description = childSnapshot.val().Description;
-    var Type = childSnapshot.val().Type;
-    var Utilities = childSnapshot.val().Utilities;
-    var Size = childSnapshot.val().Size;
+    var address = childSnapshot.val().address;
+    var postalcode = childSnapshot.val().postalcode;
+    var price = childSnapshot.val().price;
+    var numbBeds = childSnapshot.val().beds;
+    var numbBaths = childSnapshot.val().baths;
+    var description = childSnapshot.val().description;
+    var type = childSnapshot.val().type;
+    var utilities = childSnapshot.val().utilities;
+    var size = childSnapshot.val().size;
 
-    console.log(Address);
-    console.log(postalCode);
-    console.log(Price);
+    console.log(address);
+    console.log(postalcode);
+    console.log(price);
     console.log(numbBeds);
     console.log(numbBaths);
-    console.log(Description);
-    console.log(Type);
-    console.log(Utilities);
-    console.log(Size);
+    console.log(description);
+    console.log(type);
+    console.log(utilities);
+    console.log(size);
 
     var newRow = $('<tr>').append(
-      $('<td>').text(Address),
-      $('<td>').text(postalCode),
-      $('<td>').text(Price),
+      $('<td>').text(address),
+      $('<td>').text(postalcode),
+      $('<td>').text(price),
       $('<td>').text(numbBeds),
       $('<td>').text(numbBaths),
-      $('<td>').text(Description),
-      $('<td>').text(Type),
-      $('<td>').text(Utilities),
-      $('<td>').text(Size)
+      $('<td>').text(description),
+      $('<td>').text(type),
+      $('<td>').text(utilities),
+      $('<td>').text(size)
     );
 
     $('#employee-table > tbody').append(newRow);
