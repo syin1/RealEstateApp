@@ -338,6 +338,8 @@ $(document).ready(function() {
               cardBody.appendTo(card);
               card.appendTo(colmd);
               colmd.appendTo(row);
+              var container = $('.container');
+              row.appendTo(container);
             };
             dom();
           } else {
