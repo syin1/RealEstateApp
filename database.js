@@ -140,20 +140,6 @@ $(document).ready(function() {
       var ahref = $('<a>')
         .attr('href', '#')
         .addClass('button-id');
-      h1.appendTo(cardBody);
-      h2.appendTo(cardBody);
-      h3.appendTo(cardBody);
-      h4.appendTo(cardBody);
-      h5.appendTo(cardBody);
-      h6.appendTo(cardBody);
-      h7.appendTo(cardBody);
-      h8.appendTo(cardBody);
-      paragraph.appendTo(cardBody);
-      ahref.appendTo(cardBody);
-      img.appendTo(card);
-      cardBody.appendTo(card);
-      card.appendTo(colmd);
-      colmd.appendTo(row);
     };
     dom();
 
@@ -257,6 +243,22 @@ $(document).ready(function() {
           cardBody.appendTo(card);
           card.appendTo(colmd);
           colmd.appendTo(row);
+          h1.appendTo(cardBody);
+          h2.appendTo(cardBody);
+          h3.appendTo(cardBody);
+          h4.appendTo(cardBody);
+          h5.appendTo(cardBody);
+          h6.appendTo(cardBody);
+          h7.appendTo(cardBody);
+          h8.appendTo(cardBody);
+          paragraph.appendTo(cardBody);
+          ahref.appendTo(cardBody);
+          img.appendTo(card);
+          cardBody.appendTo(card);
+          card.appendTo(colmd);
+          colmd.appendTo(row);
+          var container = $('.container');
+          row.appendTo(container);
         };
         dom();
 
@@ -294,7 +296,7 @@ $(document).ready(function() {
               var cardBody = $('<div>');
               var h1 = $('<h1>')
                 .addClass('card-title-address')
-                .append(child.val().address);
+                .text(child.val().address);
               var h2 = $('<h7>')
                 .addClass('card - subtitle - postalcode')
                 .append(child.val().postalCode);
