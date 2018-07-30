@@ -13,31 +13,31 @@ $(document).ready(function() {
   $('#button-id').on('click', function(event) {
     event.preventDefault();
 
-    var address = $('.card-title-address')
+    var address = $('#employee-name-input')
       .val()
       .trim();
-    var postalcode = $('.card-subtitle-postalcode')
+    var postalcode = $('#role-input')
       .val()
       .trim();
-    var price = $('.card-subtitle mb-2 text-muted')
+    var price = $('#rate-input')
       .val()
       .trim();
-    var numbBeds = $('.card-subtitle-beds')
+    var numbBeds = $('#rate-input')
       .val()
       .trim();
-    var numbBaths = $('.card-subtitle-baths')
+    var numbBaths = $('#rate-input')
       .val()
       .trim();
-    var description = $('.card-text-description')
+    var description = $('#rate-input')
       .val()
       .trim();
-    var type = $('card-subtitle-type')
+    var type = $('#rate-input')
       .val()
       .trim();
-    var utilities = $('.card-subtitle-utilities')
+    var utilities = $('#rate-input')
       .val()
       .trim();
-    var size = $('card-subtitle-size')
+    var size = $('#rate-input')
       .val()
       .trim();
 
@@ -82,7 +82,7 @@ $(document).ready(function() {
     //console.log('val:', childSnapshot.val());
 
     var address = childSnapshot.val().address;
-    var postalcode = childSnapshot.val().postalcode;
+    var postalCode = childSnapshot.val().postalcode;
     var price = childSnapshot.val().price;
     var numbBeds = childSnapshot.val().beds;
     var numbBaths = childSnapshot.val().baths;
@@ -90,7 +90,7 @@ $(document).ready(function() {
     var type = childSnapshot.val().type;
     var utilities = childSnapshot.val().utilities;
     var size = childSnapshot.val().size;
-
+    console.log(childSnapshot.val().length);
     //console.log(address);
     //console.log(postalcode);
     //console.log(price);
@@ -100,10 +100,66 @@ $(document).ready(function() {
     //console.log(type);
     //console.log(utilities);
     //console.log(size);
+    var dom = function() {
+      var row = $('<div>').addClass('row');
+      var colmd = $('<div>').addClass('col-md-10');
+      var card = $('<div>')
+        .addClass('card')
+        .css('width', '18rem');
+      var img = $('<img>')
+        .addClass('card-img-top')
+        .attr('src', 'images/pikachutest.png');
+      var cardBody = $('<div>');
+      var h1 = $('<h1>')
+        .addClass('card-title-address')
+        .append(address);
+      var h2 = $('<h7>')
+        .addClass('card - subtitle - postalcode')
+        .append(postalCode);
+      var h3 = $('<h2>')
+        .addClass('card-subtitle mb-2 text-muted ')
+        .append(price);
+      var h4 = $('<h3>')
+        .addClass('card-subtitle-beds ')
+        .append(numbBeds);
+      var h5 = $('<h4>')
+        .addClass('card-subtitle-baths')
+        .append(numbBaths);
+      var h6 = $('<h6>')
+        .addClass('card-subtitle-type')
+        .append(type);
+      var h7 = $('<h7>')
+        .addClass('card-subtitle-utilities')
+        .append(utilities);
+      var h8 = $('<h8>')
+        .addClass('card-subtitle-size ')
+        .append(size);
+      var paragraph = $('<p>')
+        .addClass('card-text-description')
+        .append(description);
+      var ahref = $('<a>')
+        .attr('href', '#')
+        .addClass('button-id');
+      h1.appendTo(cardBody);
+      h2.appendTo(cardBody);
+      h3.appendTo(cardBody);
+      h4.appendTo(cardBody);
+      h5.appendTo(cardBody);
+      h6.appendTo(cardBody);
+      h7.appendTo(cardBody);
+      h8.appendTo(cardBody);
+      paragraph.appendTo(cardBody);
+      ahref.appendTo(cardBody);
+      img.appendTo(card);
+      cardBody.appendTo(card);
+      card.appendTo(colmd);
+      colmd.appendTo(row);
+    };
+    dom();
 
     var newRow = $('<tr>').append(
       $('<td>').text(address),
-      $('<td>').text(postalcode),
+      $('<td>').text(postalCode),
       $('<td>').text(price),
       $('<td>').text(numbBeds),
       $('<td>').text(numbBaths),
@@ -119,6 +175,7 @@ $(document).ready(function() {
     console.log('Value objects:', childSnapshot.val()); //todo : figure out why null
 
     var address = childSnapshot.val().address;
+    console.log('address: ' + address);
     var postalCode = childSnapshot.val().postalcode;
     var price = childSnapshot.val().price;
     var numbBeds = childSnapshot.val().beds;
@@ -134,8 +191,75 @@ $(document).ready(function() {
     var urlRef = rootRef.child('real-estate-app-9e4e6');
     urlRef.once('value', function(child) {
       childSnapshot.forEach(function(child) {
+        console.log('child: ' + child.val().address);
         //console.log('child: ' + child.val());//give object object
-        console.log('rootref:' + child.val());
+        //console.log('rootref:' + child.val());
+
+        //$('.card-title-address').append(child.val().address);
+        //$('.card-subtitle-postalcode ').append(child.val().postalcode);
+        //$('.card-subtitle-beds ').append(child.val().price);
+        //$('.card-subtitle-baths ').append(child.val().numbBeds);
+        //$('.card-subtitle-type ').append(child.val().numbBaths);
+        //$('.card-subtitle-utilities ').append(child.val().description);
+        //$('.card-subtitle-size ').append(child.val().type);
+        //$('.card-text-description ').append(child.val().size);
+        var dom = function() {
+          var row = $('<div>').addClass('row');
+          var colmd = $('<div>').addClass('col-md-10');
+          var card = $('<div>')
+            .addClass('card')
+            .css('width', '18rem');
+          var img = $('<img>')
+            .addClass('card-img-top')
+            .attr('src', 'images/pikachutest.png');
+          var cardBody = $('<div>');
+          var h1 = $('<h1>')
+            .addClass('card-title-address')
+            .append(child.val().address);
+          var h2 = $('<h7>')
+            .addClass('card - subtitle - postalcode')
+            .append(child.val().postalCode);
+          var h3 = $('<h2>')
+            .addClass('card-subtitle mb-2 text-muted ')
+            .append(child.val().price);
+          var h4 = $('<h3>')
+            .addClass('card-subtitle-beds ')
+            .append(child.val().numbBeds);
+          var h5 = $('<h4>')
+            .addClass('card-subtitle-baths')
+            .append(child.val().numbBaths);
+          var h6 = $('<h6>')
+            .addClass('card-subtitle-type')
+            .append(child.val().type);
+          var h7 = $('<h7>')
+            .addClass('card-subtitle-utilities')
+            .append(child.val().utilities);
+          var h8 = $('<h8>')
+            .addClass('card-subtitle-size ')
+            .append(child.val().size);
+          var paragraph = $('<p>')
+            .addClass('card-text-description')
+            .append(child.val().description);
+          var ahref = $('<a>')
+            .attr('href', '#')
+            .addClass('button-id');
+          h1.appendTo(cardBody);
+          h2.appendTo(cardBody);
+          h3.appendTo(cardBody);
+          h4.appendTo(cardBody);
+          h5.appendTo(cardBody);
+          h6.appendTo(cardBody);
+          h7.appendTo(cardBody);
+          h8.appendTo(cardBody);
+          paragraph.appendTo(cardBody);
+          ahref.appendTo(cardBody);
+          img.appendTo(card);
+          cardBody.appendTo(card);
+          card.appendTo(colmd);
+          colmd.appendTo(row);
+        };
+        dom();
+
         $('.submit').on('click', function() {
           event.preventDefault();
           searchValue = $('.input')
@@ -154,8 +278,66 @@ $(document).ready(function() {
           ) {
             //console.log('hopefully works' + child.val(searchValue));
             console.log('works ');
+            console.log(child.val());
+            //get all results for search value matching to records
             //var parentkey = childSnapshot.ref.parent.getKey();
             //console.log(parentkey);
+            var dom = function() {
+              var row = $('<div>').addClass('row');
+              var colmd = $('<div>').addClass('col-md-10');
+              var card = $('<div>')
+                .addClass('card')
+                .css('width', '18rem');
+              var img = $('<img>')
+                .addClass('card-img-top')
+                .attr('src', 'images/pikachutest.png');
+              var cardBody = $('<div>');
+              var h1 = $('<h1>')
+                .addClass('card-title-address')
+                .append(child.val().address);
+              var h2 = $('<h7>')
+                .addClass('card - subtitle - postalcode')
+                .append(child.val().postalCode);
+              var h3 = $('<h2>')
+                .addClass('card-subtitle mb-2 text-muted ')
+                .append(child.val().price);
+              var h4 = $('<h3>')
+                .addClass('card-subtitle-beds ')
+                .append(child.val().numbBeds);
+              var h5 = $('<h4>')
+                .addClass('card-subtitle-baths')
+                .append(child.val().numbBaths);
+              var h6 = $('<h6>')
+                .addClass('card-subtitle-type')
+                .append(child.val().type);
+              var h7 = $('<h7>')
+                .addClass('card-subtitle-utilities')
+                .append(child.val().utilities);
+              var h8 = $('<h8>')
+                .addClass('card-subtitle-size ')
+                .append(size);
+              var paragraph = $('<p>')
+                .addClass('card-text-description')
+                .append(child.val().description);
+              var ahref = $('<a>')
+                .attr('href', '#')
+                .addClass('button-id');
+              h1.appendTo(cardBody);
+              h2.appendTo(cardBody);
+              h3.appendTo(cardBody);
+              h4.appendTo(cardBody);
+              h5.appendTo(cardBody);
+              h6.appendTo(cardBody);
+              h7.appendTo(cardBody);
+              h8.appendTo(cardBody);
+              paragraph.appendTo(cardBody);
+              ahref.appendTo(cardBody);
+              img.appendTo(card);
+              cardBody.appendTo(card);
+              card.appendTo(colmd);
+              colmd.appendTo(row);
+            };
+            dom();
           } else {
             console.log('not in database');
           }
@@ -169,7 +351,80 @@ $(document).ready(function() {
   ///////////////////
 
   //ended nav bar search on click function
+  /* var userDataRef = database
+    .ref()
+    .child('real-estate-app-9e4e6')
+    .orderByKey();
+  userDataRef.once('value').then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var address = childSnapshot.val().address;
+      var postalCode = childSnapshot.val().postalcode;
+      var price = childSnapshot.val().price;
+      var numbBeds = childSnapshot.val().beds;
+      var numbBaths = childSnapshot.val().baths;
+      var description = childSnapshot.val().description;
+      var type = childSnapshot.val().type;
+      var utilities = childSnapshot.val().utilities;
+      var size = childSnapshot.val().size;
 
+      var dom = function() {
+        var row = $('<div>').addClass('row');
+        var colmd = $('<div>').addClass('col-md-10');
+        var card = $('<div>')
+          .addClass('card')
+          .css('width', '18rem');
+        var img = $('<img>')
+          .addClass('card-img-top')
+          .attr('src', 'images/pikachutest.png');
+        var cardBody = $('<div>');
+        var h1 = $('<h1>')
+          .addClass('card-title-address')
+          .append(address);
+        var h2 = $('<h7>')
+          .addClass('card - subtitle - postalcode')
+          .append(postalCode);
+        var h3 = $('<h2>')
+          .addClass('card-subtitle mb-2 text-muted ')
+          .append(price);
+        var h4 = $('<h3>')
+          .addClass('card-subtitle-beds ')
+          .append(numbBeds);
+        var h5 = $('<h4>')
+          .addClass('card-subtitle-baths')
+          .append(numbBaths);
+        var h6 = $('<h6>')
+          .addClass('card-subtitle-type')
+          .append(type);
+        var h7 = $('<h7>')
+          .addClass('card-subtitle-utilities')
+          .append(utilities);
+        var h8 = $('<h8>')
+          .addClass('card-subtitle-size ')
+          .append(size);
+        var paragraph = $('<p>')
+          .addClass('card-text-description')
+          .append(description);
+        var ahref = $('<a>')
+          .attr('href', '#')
+          .addClass('button-id');
+        h1.appendTo(cardBody);
+        h2.appendTo(cardBody);
+        h3.appendTo(cardBody);
+        h4.appendTo(cardBody);
+        h5.appendTo(cardBody);
+        h6.appendTo(cardBody);
+        h7.appendTo(cardBody);
+        h8.appendTo(cardBody);
+        paragraph.appendTo(cardBody);
+        ahref.appendTo(cardBody);
+        img.appendTo(card);
+        cardBody.appendTo(card);
+        card.appendTo(colmd);
+        colmd.appendTo(row);
+      };
+      dom();
+    });
+  });*/
   /////////////////////////////////////////////
   //end of document.ready function
 });
