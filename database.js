@@ -102,7 +102,7 @@ $(document).ready(function() {
     //console.log(size);
     var dom = function() {
       var row = $('<div>').addClass('row');
-      var colmd = $('<div>').addClass('col-md-10');
+      var colmd = $('<div>').addClass('col-md-6');
       var card = $('<div>')
         .addClass('card')
         .css('width', '18rem');
@@ -178,6 +178,7 @@ $(document).ready(function() {
     urlRef.once('value', function(child) {
       childSnapshot.forEach(function(child) {
         console.log('child: ' + child.val().address);
+        console.log('postals:' + child.val().postalcode);
         //console.log('child: ' + child.val());//give object object
         //console.log('rootref:' + child.val());
 
@@ -191,29 +192,29 @@ $(document).ready(function() {
         //$('.card-text-description ').append(child.val().size);
         var dom = function() {
           var row = $('<div>').addClass('row');
-          var colmd = $('<div>').addClass('col-md-10');
+          var colmd = $('<div>').addClass('col-md-6');
           var card = $('<div>')
-            .addClass('card')
+            .addClass('card holdings')
             .css('width', '18rem');
           var img = $('<img>')
             .addClass('card-img-top')
             .attr('src', 'images/pikachutest.png');
           var cardBody = $('<div>');
           var h1 = $('<h1>')
-            .addClass('card-title-address')
+            .addClass('card-title address')
             .append(child.val().address);
           var h2 = $('<h7>')
-            .addClass('card - subtitle - postalcode')
-            .append(child.val().postalCode);
+            .addClass('card-subtitle postalcode')
+            .append(child.val().postalcode);
           var h3 = $('<h2>')
-            .addClass('card-subtitle mb-2 text-muted ')
+            .addClass('card-subtitle mb-2 text-muted')
             .append(child.val().price);
           var h4 = $('<h3>')
-            .addClass('card-subtitle-beds ')
-            .append(child.val().numbBeds);
+            .addClass('card-subtitle-beds')
+            .append(child.val().beds + ' beds');
           var h5 = $('<h4>')
             .addClass('card-subtitle-baths')
-            .append(child.val().numbBaths);
+            .append(child.val().baths + ' baths');
           var h6 = $('<h6>')
             .addClass('card-subtitle-type')
             .append(child.val().type);
@@ -262,6 +263,9 @@ $(document).ready(function() {
         };
         dom();
 
+        //card-title address => .address
+        //address
+
         $('.submit').on('click', function() {
           event.preventDefault();
           searchValue = $('.input')
@@ -287,7 +291,7 @@ $(document).ready(function() {
 
             var searchdom = function() {
               var row = $('<div>').addClass('row');
-              var colmd = $('<div>').addClass('col-md-10');
+              var colmd = $('<div>').addClass('col-md-6');
               var card = $('<div>')
                 .addClass('card')
                 .css('width', '18rem');
@@ -374,7 +378,7 @@ $(document).ready(function() {
 
       var dom = function() {
         var row = $('<div>').addClass('row');
-        var colmd = $('<div>').addClass('col-md-10');
+        var colmd = $('<div>').addClass('col-md-6');
         var card = $('<div>')
           .addClass('card')
           .css('width', '18rem');
