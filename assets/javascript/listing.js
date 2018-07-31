@@ -7,7 +7,8 @@
 //   Description: description,
 //   Type: type,
 //   Utilities: utilities,
-//   Size: size
+//   Size: size,
+//   token: '0'
 // };
 var config = {
   apiKey: 'AIzaSyAGwvEkUM7qJKhTtJfwo9cAKdCOhrD8lmc',
@@ -19,30 +20,34 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
+
 database
   .ref()
-  .orderByChild('address')
-  .equalTo(/**/)
-  .once('child_added', function(childSnapshot) {
-    var Address = childSnapshot.val().address;
-    var Baths = childSnapshot.val().baths;
-    var Beds = childSnapshot.val().beds;
-    var Description = childSnapshot.val().description;
-    var postalCode = childSnapshot.val().postalCode;
-    var Price = childSnapshot.val().price;
-    var Type = childSnapshot.val().type;
-    var Utilities = childSnapshot.val().utilities;
-    var Size = childSnapshot.val().size;
+  .orderByChild('Token')
+  .equalTo('1')
+  .once('value', function(childSnapshot) {
+    snapshot.forEach(function(userSnapshot) {
+      console.log(userSnapshot.val().Address);
+      var Address = childSnapshot.val().address;
+      var Baths = childSnapshot.val().baths;
+      var Beds = childSnapshot.val().beds;
+      var Description = childSnapshot.val().description;
+      var postalCode = childSnapshot.val().postalCode;
+      var Price = childSnapshot.val().price;
+      var Type = childSnapshot.val().type;
+      var Utilities = childSnapshot.val().utilities;
+      var Size = childSnapshot.val().size;
 
-    $('#address').html(Address);
-    $('#bath').html(Baths);
-    $('#beds').html(Beds);
-    $('#description').html(Description);
-    $('#postalCode').html(postalCode);
-    $('#price').html(Price);
-    $('#type').html(Type);
-    $('#utilities').html(Utilities);
-    $('#size').html(Size);
+      $('#address').html(Address);
+      $('#bath').html(Baths);
+      $('#beds').html(Beds);
+      $('#description').html(Description);
+      $('#postalCode').html(postalCode);
+      $('#price').html(Price);
+      $('#type').html(Type);
+      $('#utilities').html(Utilities);
+      $('#size').html(Size);
+    });
   });
 
 //Back Button
