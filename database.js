@@ -284,7 +284,8 @@ $(document).ready(function() {
             //get all results for search value matching to records
             //var parentkey = childSnapshot.ref.parent.getKey();
             //console.log(parentkey);
-            var dom = function() {
+
+            var searchdom = function() {
               var row = $('<div>').addClass('row');
               var colmd = $('<div>').addClass('col-md-10');
               var card = $('<div>')
@@ -341,7 +342,7 @@ $(document).ready(function() {
               var container = $('.container');
               row.appendTo(container);
             };
-            dom();
+            searchdom();
           } else {
             console.log('not in database');
           }
