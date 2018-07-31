@@ -11,15 +11,16 @@
 //   token: '0'
 // };
 var config = {
-  apiKey: 'AIzaSyAGwvEkUM7qJKhTtJfwo9cAKdCOhrD8lmc',
+  apiKey: 'AIzaSyDYI4Fjm_RWQadwHH7KdTJGSErId9aUJKY',
   authDomain: 'real-estate-app-9e4e6.firebaseapp.com',
-  databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com/',
+  databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com',
   projectId: 'real-estate-app-9e4e6',
   storageBucket: 'real-estate-app-9e4e6.appspot.com',
-  messagingSenderId: '563256383606'
+  messagingSenderId: '1087918608727'
 };
 firebase.initializeApp(config);
 var database = firebase.database();
+console.log('thru');
 
 database
   .ref()
@@ -28,15 +29,15 @@ database
   .once('value', function(childSnapshot) {
     snapshot.forEach(function(userSnapshot) {
       console.log(userSnapshot.val().Address);
-      var Address = childSnapshot.val().address;
-      var Baths = childSnapshot.val().baths;
-      var Beds = childSnapshot.val().beds;
-      var Description = childSnapshot.val().description;
-      var postalCode = childSnapshot.val().postalCode;
-      var Price = childSnapshot.val().price;
-      var Type = childSnapshot.val().type;
-      var Utilities = childSnapshot.val().utilities;
-      var Size = childSnapshot.val().size;
+      var Address = userSnapshot.val().Address;
+      var Baths = userSnapshot.val().Baths;
+      var Beds = userSnapshot.val().Beds;
+      var Description = userSnapshot.val().Description;
+      var postalCode = userSnapshot.val().postalCode;
+      var Price = userSnapshot.val().Price;
+      var Type = userSnapshot.val().Type;
+      var Utilities = userSnapshot.val().Utilities;
+      var Size = userSnapshot.val().Size;
 
       $('#address').html(Address);
       $('#bath').html(Baths);
