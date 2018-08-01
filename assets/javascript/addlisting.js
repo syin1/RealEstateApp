@@ -1,16 +1,6 @@
 $(document).ready(function() {
   // Initialize Firebase
-  var config = {
-    apiKey: 'AIzaSyDYI4Fjm_RWQadwHH7KdTJGSErId9aUJKY',
-    authDomain: 'real-estate-app-9e4e6.firebaseapp.com',
-    databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com',
-    projectId: 'real-estate-app-9e4e6',
-    storageBucket: 'real-estate-app-9e4e6.appspot.com',
-    messagingSenderId: '1087918608727'
-  };
-  firebase.initializeApp(config);
-
-  var database = firebase.database();
+  var firebase = require('./firebase.js');
 
   $('#submit').on('click', function(event) {
     // event.preventDefault(); // this step is necessary to trigger the default validation
@@ -72,7 +62,7 @@ $(document).ready(function() {
       .val()
       .trim();
 
-    database.ref().push({
+    firebase.ref().push({
       address: address,
       postalcode: postalcode,
       price: price,
@@ -85,7 +75,7 @@ $(document).ready(function() {
       name: name,
       email: email,
       uid: uid,
-      dateAdded: firebase.database.ServerValue.TIMESTAMP
+      dateAdded: firebase.firebase.ServerValue.TIMESTAMP
     });
 
     window.location.href = 'index.html';

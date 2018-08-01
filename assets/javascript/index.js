@@ -2,17 +2,9 @@ $(document).ready(function() {
   var imageno = 0;
 
   // Initialize Firebase
-  var config = {
-    apiKey: 'AIzaSyDYI4Fjm_RWQadwHH7KdTJGSErId9aUJKY',
-    authDomain: 'real-estate-app-9e4e6.firebaseapp.com',
-    databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com',
-    projectId: 'real-estate-app-9e4e6',
-    storageBucket: 'real-estate-app-9e4e6.appspot.com',
-    messagingSenderId: '1087918608727'
-  };
-  firebase.initializeApp(config);
+  var firebase = require('./firebase.js');
 
-  var database = firebase.database();
+  // var database = firebase.database();
 
   function renderHTML(snapshot, imageno) {
     var obj = snapshot.val();
@@ -54,7 +46,7 @@ $(document).ready(function() {
     $('.row').append(col);
   }
 
-  database.ref().on(
+  firebase.ref().on(
     'child_added',
     function(snapshot) {
       imageno++;
@@ -65,7 +57,7 @@ $(document).ready(function() {
     }
   );
 
-  database.ref().on(
+  firebase.ref().on(
     'child_removed',
     function(snapshot) {
       $('#' + snapshot.key).remove();
@@ -126,7 +118,7 @@ $(document).ready(function() {
     if (user != null) {
       sessionStorage.clear();
 
-      database
+      firebase
         .ref()
         .child($(this).attr('data-key'))
         .once('value')
