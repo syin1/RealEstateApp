@@ -24,7 +24,32 @@
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0 search" type="submit">Search</button>
+
+      <div class="dropdown">
+        <button class="btn btn-outline-success dropdown-toggle ml-2" type="submit" data-toggle="dropdown">Filter
+        </button>
+        <div class="dropdown-menu">
+          <form class="px-4 py-3">
+            <h6 class="dropdown-header">Bathrooms</h6>
+            <button class="btn btn-primary m-1" id="oneBathroom">1</button>
+            <button class="btn btn-primary m-1" id="twoBathroom">2</button>
+            <button class="btn btn-primary m-1" id="threeBathroom">3</button>
+            <button class="btn btn-primary m-1" id="fourBathroom">4</button>
+            <button class="btn btn-primary m-1" id="fiveBathroom">5</button>
+            <button class="btn btn-primary m-1" id="sixBathroom">6</button>
+            <h6 class="dropdown-header">Bedrooms</h6>
+            <button class="btn btn-primary m-1" id="oneBedroom">1</button>
+            <button class="btn btn-primary m-1" id="twoBedroom">2</button>
+            <button class="btn btn-primary m-1" id="threeBedroom">3</button>
+            <button class="btn btn-primary m-1" id="fourBedroom">4</button>
+            <button class="btn btn-primary m-1" id="fiveBedroom">5</button>
+          </form>
+        </div>
+      </div>
+
     </form>
+
+
 
     <button class='btn btn-outline-success my-2 my-sm-0 createlisting' type='submit'>Create New Listing</button>
     <button class="btn btn-outline-success my-2 my-sm-0 loginlogout" type="submit"></button>

@@ -14,6 +14,78 @@ $(document).ready(function() {
 
   var database = firebase.database();
 
+  //Mateus Filter Addition
+  ///////////////////////////////////////////////////////////////////////////////
+  function firebaseFilterBedBath(filter1, filter2) {
+    $('.row').empty();
+    database
+      .ref()
+      .orderByChild(filter1)
+      .equalTo(filter2)
+      .on('child_added', function(snapshot) {
+        imageno++;
+        renderHTML(snapshot, imageno);
+      });
+  }
+
+  //Filter Action (for one bathroom houses)
+  $('#oneBathroom').on('click', function() {
+    firebaseFilterBedBath('baths', '1');
+    return false;
+  });
+  //Filter Action (for two bathroom houses)
+  $('#twoBathroom').on('click', function() {
+    firebaseFilterBedBath('baths', '2');
+    return false;
+  });
+  //Filter Action (for three bathroom houses)
+  $('#threeBathroom').on('click', function() {
+    firebaseFilterBedBath('baths', '3');
+    return false;
+  });
+  //Filter Action (for four bathroom houses)
+  $('#fourBathroom').on('click', function() {
+    firebaseFilterBedBath('baths', '4');
+    return false;
+  });
+  //Filter Action (for five bathroom houses)
+  $('#fiveBathroom').on('click', function() {
+    firebaseFilterBedBath('baths', '5');
+    return false;
+  });
+  //Filter Action (for six bathroom houses)
+  $('#sixBathroom').on('click', function() {
+    firebaseFilterBedBath('baths', '6');
+    return false;
+  });
+
+  //Filter Action (for one bedroom houses)
+  $('#oneBedroom').on('click', function() {
+    firebaseFilterBedBath('beds', '1');
+    return false;
+  });
+  //Filter Action (for two bathroom houses)
+  $('#twoBedroom').on('click', function() {
+    firebaseFilterBedBath('beds', '2');
+    return false;
+  });
+  //Filter Action (for three bathroom houses)
+  $('#threeBedroom').on('click', function() {
+    firebaseFilterBedBath('beds', '3');
+    return false;
+  });
+  //Filter Action (for four bathroom houses)
+  $('#fourBedroom').on('click', function() {
+    firebaseFilterBedBath('beds', '4');
+    return false;
+  });
+  //Filter Action (for five bathroom houses)
+  $('#fiveBedroom').on('click', function() {
+    firebaseFilterBedBath('beds', '5');
+    return false;
+  });
+  ///////////////////////////////////////////////////////////////////////////////
+
   function renderHTML(snapshot, imageno) {
     var obj = snapshot.val();
 
