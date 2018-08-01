@@ -1,3 +1,4 @@
+// reference to the database
 var config = {
   apiKey: 'AIzaSyAGwvEkUM7qJKhTtJfwo9cAKdCOhrD8lmc',
   authDomain: 'realestateapp-70bdf.firebaseapp.com',
@@ -6,10 +7,13 @@ var config = {
   storageBucket: 'realestateapp-70bdf.appspot.com',
   messagingSenderId: '563256383606'
 };
+// initializes the database
 firebase.initializeApp(config);
 
 var database = firebase.database();
 
+// prevents the page from reloading
+// identifying and grabbing the value from different form boxes and storing it in a variable
 $('#button-id').on('click', function(event) {
   event.preventDefault();
 
@@ -41,6 +45,7 @@ $('#button-id').on('click', function(event) {
     .val()
     .trim();
 
+  // groups all of the different values in one variable or "listing"
   var newList = {
     Address: Address,
     postalCode: postalCode,
@@ -53,6 +58,7 @@ $('#button-id').on('click', function(event) {
     Size: Size
   };
 
+  // pushes and saves all of the data to the database
   database.ref().push(newList);
 
   console.log(newList.Address);
@@ -67,6 +73,7 @@ $('#button-id').on('click', function(event) {
 
   alert('Listing successfully added');
 
+  // clearing all of the form boxes once the form is submitted
   $('.card-title-address').val('');
   $('.card-subtitle-postalcode').val('');
   $('.card-subtitle mb-2 text-muted').val('');
@@ -78,6 +85,7 @@ $('#button-id').on('click', function(event) {
   $('card-text-description').val('');
 });
 
+// takes a snapshot of the values in the boxes and saves them to the database
 database.ref().on('child_added', function(childSnapshot) {
   console.log(childSnapshot.val());
 
@@ -101,6 +109,7 @@ database.ref().on('child_added', function(childSnapshot) {
   console.log(Utilities);
   console.log(Size);
 
+  // displays them in the html code and on the screen
   var newRow = $('<tr>').append(
     $('<td>').text(Address),
     $('<td>').text(postalCode),
