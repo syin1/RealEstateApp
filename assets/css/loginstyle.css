@@ -1,0 +1,14 @@
+body,
+html {
+  height: 100%;
+  font-family: 'Eczar', serif;
+  font-size: 36px;
+  text-align: center;
+}
+
+.container-fluid {
+  background-image: url('../images/realestate_login_bg.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
