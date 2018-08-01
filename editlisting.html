@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid text-white bg-dark">
+      <div class="container">
+        <h1 class="display-4 text-center">Edit My Real Estate Listing</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            Add Listing
+          </div>
+          <div class="card-body">
+            <form id="editform">
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" required>
+              </div>
+              <div class="form-group">
+                <label for="postalcode">Postal Code</label>
+                <input type="text" class="form-control" id="postalcode" required>
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" required>
+              </div>
+              <div class="form-group">
+                <label for="beds">Beds</label>
+                <input type="text" class="form-control" id="beds" required>
+              </div>
+              <div class="form-group">
+                <label for="baths">Baths</label>
+                <input type="text" class="form-control" id="baths" required>
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea type="text" class="form-control" id="description" rows="4" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="type">Type</label>
+                <input type="text" class="form-control" id="type" required>
+              </div>
+              <div class="form-group">
+                <label for="utilities">Utilities</label>
+                <input type="text" class="form-control" id="utilities" required>
+              </div>
+              <div class="form-group">
+                <label for="size">Size</label>
+                <input type="text" class="form-control" id="size" required>
+              </div>
+              <button class="btn btn-primary" id="submit">Submit</button>
+              <button class="btn btn-primary" id="cancel">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script src="assets/javascript/moment.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.10.2/validator.min.js"></script>
+  <script src="assets/javascript/editlisting.js"></script>
+</body>
+
+</html>
