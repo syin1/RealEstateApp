@@ -1,6 +1,6 @@
 # RealEstateApp
 
-![Real Estate App](css/images/realestate&tech.jpeg)
+![Real Estate App](css/images/realestate&tech.jpg)
 
 This Real Estate Listing application allows you to browse existing house listings as well as create a listing as well as edit and delete a listing you create.
 
