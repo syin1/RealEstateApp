@@ -7,14 +7,14 @@ var config = {
   storageBucket: 'test-3c5cc.appspot.com',
   messagingSenderId: '903703720217'
 };
-// var config = {
-//   apiKey: 'AIzaSyDYI4Fjm_RWQadwHH7KdTJGSErId9aUJKY',
-//   authDomain: 'real-estate-app-9e4e6.firebaseapp.com',
-//   databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com',
-//   projectId: 'real-estate-app-9e4e6',
-//   storageBucket: 'real-estate-app-9e4e6.appspot.com',
-//   messagingSenderId: '1087918608727'
-// };
+var config1 = {
+  apiKey: 'AIzaSyDYI4Fjm_RWQadwHH7KdTJGSErId9aUJKY',
+  authDomain: 'real-estate-app-9e4e6.firebaseapp.com',
+  databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com',
+  projectId: 'real-estate-app-9e4e6',
+  storageBucket: 'real-estate-app-9e4e6.appspot.com',
+  messagingSenderId: '1087918608727'
+};
 firebase.initializeApp(config);
 var databaseRef = firebase.database().ref();
 var i = 0;
@@ -73,7 +73,7 @@ function getMap() {
             response[0].geometry.location.lng()
         );
         //Store coordinates
-        locConvertLat[j] = response[0].geometry.location.lat();
+        l ocConvertLat[j] = response[0].geometry.location.lat();
         locConvertLong[j] = response[0].geometry.location.lng();
         console.log(
           'loc coordinates= ' + locConvertLat[j] + ' ' + locConvertLong[j]
