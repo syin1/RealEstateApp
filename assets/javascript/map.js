@@ -58,12 +58,10 @@ var token =
 var marker;
 //For using geocode
 var geocoder = new google.maps.Geocoder();
-
 function getMap() {
   console.log('getMap started');
   for (var j = 0; j < locFull.length; j++) {
     console.log('Got into geocode for loop');
-
     geocoder.geocode({ address: locFull[j] }, function(response, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         // Log all results
@@ -80,12 +78,13 @@ function getMap() {
         console.log(
           'loc coordinates= ' + locConvertLat[j] + ' ' + locConvertLong[j]
         );
+        //Create new markers for each location
         marker = new L.marker([locConvertLat[j], locConvertLong[j]]).addTo(
           myMap
         );
         console.log('created marker ' + j);
         console.log(response[0].formatted_address);
-
+        //Create popups for each marker
         marker.bindPopup(response[0].formatted_address);
       } else {
         console.log('Error: ' + status);
@@ -93,9 +92,11 @@ function getMap() {
     });
   }
 }
+//Sets up map view
 function createMyMap(locConvertLat, locConvertLong) {
   myMap = L.map('mapid').setView([locConvertLat, locConvertLong], 11);
 }
+//Creates map
 function createMap() {
   L.tileLayer(
     'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' +
