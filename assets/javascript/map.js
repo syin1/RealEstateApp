@@ -73,7 +73,7 @@ function getMap() {
             response[0].geometry.location.lng()
         );
         //Store coordinates
-        l ocConvertLat[j] = response[0].geometry.location.lat();
+        locConvertLat[j] = response[0].geometry.location.lat();
         locConvertLong[j] = response[0].geometry.location.lng();
         console.log(
           'loc coordinates= ' + locConvertLat[j] + ' ' + locConvertLong[j]
