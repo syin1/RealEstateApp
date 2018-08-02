@@ -84,7 +84,9 @@ function getMap() {
           myMap
         );
         console.log('created marker ' + j);
-        marker.bindPopup('<b>Hello world!</b><br>I am a popup # ' + j);
+        console.log(response[0].formatted_address);
+
+        marker.bindPopup(response[0].formatted_address);
       } else {
         console.log('Error: ' + status);
       }
