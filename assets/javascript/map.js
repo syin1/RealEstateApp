@@ -1,20 +1,20 @@
 //FIREBASE INIT START
-// var config = {
-//   apiKey: 'AIzaSyBxZrsKG_py7bXZATlHpYoxe8-G9dFmneE',
-//   authDomain: 'test-3c5cc.firebaseapp.com',
-//   databaseURL: 'https://test-3c5cc.firebaseio.com',
-//   projectId: 'test-3c5cc',
-//   storageBucket: 'test-3c5cc.appspot.com',
-//   messagingSenderId: '903703720217'
-// };
 var config = {
-  apiKey: 'AIzaSyDYI4Fjm_RWQadwHH7KdTJGSErId9aUJKY',
-  authDomain: 'real-estate-app-9e4e6.firebaseapp.com',
-  databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com',
-  projectId: 'real-estate-app-9e4e6',
-  storageBucket: 'real-estate-app-9e4e6.appspot.com',
-  messagingSenderId: '1087918608727'
+  apiKey: 'AIzaSyBxZrsKG_py7bXZATlHpYoxe8-G9dFmneE',
+  authDomain: 'test-3c5cc.firebaseapp.com',
+  databaseURL: 'https://test-3c5cc.firebaseio.com',
+  projectId: 'test-3c5cc',
+  storageBucket: 'test-3c5cc.appspot.com',
+  messagingSenderId: '903703720217'
 };
+// var config = {
+//   apiKey: 'AIzaSyDYI4Fjm_RWQadwHH7KdTJGSErId9aUJKY',
+//   authDomain: 'real-estate-app-9e4e6.firebaseapp.com',
+//   databaseURL: 'https://real-estate-app-9e4e6.firebaseio.com',
+//   projectId: 'real-estate-app-9e4e6',
+//   storageBucket: 'real-estate-app-9e4e6.appspot.com',
+//   messagingSenderId: '1087918608727'
+// };
 firebase.initializeApp(config);
 var databaseRef = firebase.database().ref();
 var i = 0;
@@ -78,8 +78,13 @@ function getMap() {
         locConvertLat[j] = response[0].geometry.location.lat();
         locConvertLong[j] = response[0].geometry.location.lng();
         console.log(
-          'New coordinates= ' + locConvertLat[j] + ' ' + locConvertLong[j]
+          'loc coordinates= ' + locConvertLat[j] + ' ' + locConvertLong[j]
         );
+        marker = new L.marker([locConvertLat[j], locConvertLong[j]]).addTo(
+          myMap
+        );
+        console.log('created marker ' + j);
+        marker.bindPopup('<b>Hello world!</b><br>I am a popup # ' + j);
       } else {
         alert('Error: ' + status);
       }
@@ -103,16 +108,6 @@ function createMap() {
       accessToken: 'your.mapbox.access.token'
     }
   ).addTo(myMap);
-}
-//Creates marker
-function createMarker() {
-  locConvertLat.forEach(function(lat) {
-    locConvertLong.forEach(function(long) {
-      marker = L.marker([lat, long]).addTo(myMap);
-      console.log('created marker');
-      marker.bindPopup('<b>Hello world!</b><br>I am a popup.');
-    });
-  });
 }
 //MAP INIT END
 //
