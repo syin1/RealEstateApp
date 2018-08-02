@@ -86,7 +86,7 @@ function getMap() {
         console.log('created marker ' + j);
         marker.bindPopup('<b>Hello world!</b><br>I am a popup # ' + j);
       } else {
-        alert('Error: ' + status);
+        console.log('Error: ' + status);
       }
     });
   }
